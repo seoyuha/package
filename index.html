@@ -30,17 +30,19 @@
 @media(max-width:560px){.grid{grid-template-columns:1fr}.topbar{grid-template-columns:1fr}.topbar .user{grid-column:auto}}
 
 .libraryBanner{display:block;width:100%;height:auto;aspect-ratio:3/1;object-fit:contain;border-radius:18px;box-shadow:0 8px 24px rgba(54,106,164,.08);margin:0 0 12px;background:#d9f1ff}
+.sectionHeading{font-size:15px;font-weight:900;color:#5579a5;margin:6px 0 12px 3px;letter-spacing:.01em}.chipsRow{min-height:50px;justify-content:flex-start}.chipsRow .chip{white-space:nowrap}.chipsRow .chip.active{background:#428ef5;color:white;border-color:#428ef5} .chipsRow .chip:hover{box-shadow:0 5px 14px rgba(57,115,202,.15)}
 </style></head><body>
 <div class="app">
 <aside class="left">
 <div class="brand"><div class="logoBox"></div><div><div class="brandTitle">English<br><span>Game Hub</span></div><div class="brandSub">영어 게임 모음</div></div></div>
-<nav class="nav"><a class="active" href="#"><span class="i"><svg class="ui-icon" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8M5 10v11h14V10M9 21v-7h6v7"/></svg></span>홈</a><a href="#games"><span class="i"><svg class="ui-icon" viewBox="0 0 24 24"><path d="M6 7h12l3 8c1 5-3 7-6 3l-3-2-3 2c-3 4-7 2-6-3zM8 11v5M5.5 13.5h5M16.5 12h.01M19 14h.01"/></svg></span>전체 게임</a><a href="#"><span class="i"><svg class="ui-icon" viewBox="0 0 24 24"><path d="M12 6C9 3 5 3 2 4v15c4-1 8 0 10 2 2-2 6-3 10-2V4c-3-1-7-1-10 2zM12 6v15"/></svg></span>단원별</a><a href="#"><span class="i"><svg class="ui-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>카테고리</a><a href="#"><span class="i"><svg class="ui-icon" viewBox="0 0 24 24"><polygon points="12 2 15.1 8.4 22 9.3 17 14.2 18.2 21 12 17.7 5.8 21 7 14.2 2 9.3 8.9 8.4"/></svg></span>즐겨찾기</a><a href="#"><span class="i"><svg class="ui-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 3"/></svg></span>최근 사용</a><a href="#" id="settingsLink"><span class="i"><svg class="ui-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>설정 · 게임 관리</a></nav>
+<nav class="nav"><a data-nav="home" class="active" href="#"><span class="i"><svg class="ui-icon" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8M5 10v11h14V10M9 21v-7h6v7"/></svg></span>홈</a><a data-nav="all" href="#games"><span class="i"><svg class="ui-icon" viewBox="0 0 24 24"><path d="M6 7h12l3 8c1 5-3 7-6 3l-3-2-3 2c-3 4-7 2-6-3zM8 11v5M5.5 13.5h5M16.5 12h.01M19 14h.01"/></svg></span>전체 게임</a><a data-nav="units" href="#"><span class="i"><svg class="ui-icon" viewBox="0 0 24 24"><path d="M12 6C9 3 5 3 2 4v15c4-1 8 0 10 2 2-2 6-3 10-2V4c-3-1-7-1-10 2zM12 6v15"/></svg></span>단원별</a><a data-nav="categories" href="#"><span class="i"><svg class="ui-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>카테고리</a><a data-nav="favorites" href="#"><span class="i"><svg class="ui-icon" viewBox="0 0 24 24"><polygon points="12 2 15.1 8.4 22 9.3 17 14.2 18.2 21 12 17.7 5.8 21 7 14.2 2 9.3 8.9 8.4"/></svg></span>즐겨찾기</a><a data-nav="recent" href="#"><span class="i"><svg class="ui-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 3"/></svg></span>최근 사용</a><a href="#" id="settingsLink"><span class="i"><svg class="ui-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>설정 · 게임 관리</a></nav>
 <div class="sidePromo"><img src="images/promo.webp" alt="Play Learn Grow Together"></div>
 </aside>
 <main class="center">
   <div class="topbar"><input class="search" id="search" placeholder="🔎  게임 이름 또는 단원 검색" aria-label="게임 검색"><button class="filterBtn" id="filterBtn"><svg class="ui-icon" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></svg> 필터</button><div class="user"><div class="userL"><div style="font-size:28px;color:#2d4e82">🔔</div><div class="userAvatar"><img src="images/avatar.webp" alt="avatar"></div><div><div class="userName">유하쌤</div><div class="userSub">좋은 게임, 더 좋은 수업! 😊</div></div></div><div style="font-size:24px;color:#33598d">⌄</div></div></div>
   <img class="libraryBanner" src="images/library_banner.webp" alt="내 영어 게임 라이브러리 안내 배너">
-  <div class="chipsRow"><button class="chip active" data-filter="all">전체</button><button class="chip" data-filter="종합">종합</button><button class="chip c2" data-filter="어휘">어휘</button><button class="chip c3" data-filter="문장">문장</button><button class="chip c4" data-filter="카드·보드">카드게임</button><button class="chip c5" data-filter="보드게임">보드게임</button><button class="chip c6" data-filter="전투형">전투형</button><button class="chip c7" data-filter="협동">협동</button></div>
+  <div class="sectionHeading" id="sectionHeading">전체 게임</div>
+  <div class="chipsRow" id="sectionChips" role="group" aria-label="게임 분류"></div>
   <section id="games"><div class="contentHeader"><h2>게임 라이브러리 <small id="gameCount">17개</small></h2><button class="filterBtn" id="addGameBtn">＋ 게임 등록</button></div><div class="grid" id="grid"></div></section>
 </main>
 <aside class="right">
@@ -63,6 +65,7 @@ const stored=()=>{try{return JSON.parse(localStorage.getItem(STORE))}catch(e){re
 let games=Array.isArray(stored())?stored():defaults.map(x=>({...x}));games=games.map(g=>({...g,unit:g.unit==='전체'?'전단원':g.unit,category:g.category==='치이카와'?'모험·생활':g.category}));
 let favs=JSON.parse(localStorage.getItem(FAV)||'[]'), recent=JSON.parse(localStorage.getItem(REC)||'[]');
 let filter='all', query='', section='all', sortNewest=false, selectedQR=null;
+let navMode='home';
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const save=()=>{try{localStorage.setItem(STORE,JSON.stringify(games));return true}catch(e){alert('저장 공간이 부족합니다. 이미지 용량을 줄이거나 JSON으로 백업해 주세요.');return false}};
 const updateFav=()=>{localStorage.setItem(FAV,JSON.stringify(favs));$('favCount').textContent=favs.length};
@@ -94,10 +97,33 @@ $('settingsLink').onclick=e=>{e.preventDefault();admin()};$('addGameBtn')?.addEv
 $('dialogBody').addEventListener('click',e=>{const ed=e.target.closest('[data-edit]'),del=e.target.closest('[data-delete]');if(ed)editGame(ed.dataset.edit);if(del){const g=gameById(del.dataset.delete);if(confirm(`${g.name} 게임을 삭제할까요?`)){const previousGames=games;games=games.filter(x=>x.id!==g.id);if(save()){render();admin()}else{games=previousGames}}}});
 $('grid').onclick=e=>{const fav=e.target.closest('[data-fav]'),info=e.target.closest('[data-info]'),qr=e.target.closest('[data-qr]'),play=e.target.closest('[data-play]');if(fav){const id=fav.dataset.fav;favs=favs.includes(id)?favs.filter(x=>x!==id):[...favs,id];updateFav();render()}if(info){const g=gameById(info.dataset.info);openModal(g.name,`<p>${esc(g.desc)}</p><p class="muted">${esc(g.category)} · ${esc(g.unit)}</p><p><a target="_blank" rel="noopener" href="${esc(g.url)}">학생용 실행 ↗</a></p>${g.teacher?`<p><a target="_blank" rel="noopener" href="${esc(g.teacher)}">교사용 실행 ↗</a></p>`:''}<div class="formActions"><button id="infoEdit">정보 수정</button></div>`);$('infoEdit').onclick=()=>editGame(g.id)}if(qr){const g=gameById(qr.dataset.qr);makeQR(g.url,g.name)}if(play){const id=play.dataset.play;recent=[id,...recent.filter(x=>x!==id)].slice(0,15);localStorage.setItem(REC,JSON.stringify(recent))}};
 function makeQR(url,name){selectedQR=url;$('qrLabel').textContent=name+' · QR코드 로딩 중';const c=$('qrcanvas'),ctx=c.getContext('2d'),im=new Image();im.crossOrigin='anonymous';im.onload=()=>{ctx.clearRect(0,0,c.width,c.height);ctx.drawImage(im,0,0,c.width,c.height);$('qrLabel').textContent=name+' · 휴대폰으로 스캔하세요'};im.onerror=()=>{$('qrLabel').textContent='QR 이미지 연결 실패 · 아래 주소를 복사해 사용하세요';ctx.clearRect(0,0,c.width,c.height)};im.src='https://api.qrserver.com/v1/create-qr-code/?size=180x180&data='+encodeURIComponent(url)}
-$('search').addEventListener('input',e=>{query=e.target.value;render()});document.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));b.classList.add('active');filter=b.dataset.filter;section='all';render()});
+const UNIT_OPTIONS=['전체', '전단원', ...Array.from({length:12},(_,i)=>(i+1)+'단원')];
+const CATEGORY_OPTIONS=['전체','종합','창의·퀴즈','카드·보드','보드게임','퀴즈·기타','모험·생활','전투형','협동','어휘','문장'];
+const HOME_OPTIONS=['전체','종합','어휘','문장','카드·보드','보드게임','전투형','협동'];
+function setNav(mode){
+ navMode=mode;filter='all';section=mode==='favorites'?'favorites':mode==='recent'?'recent':'all';
+ const headings={home:'게임 라이브러리',all:'전체 게임',units:'단원별 게임',categories:'카테고리별 게임',favorites:'즐겨찾기',recent:'최근 사용'};
+ $('sectionHeading').textContent=headings[mode]||'게임 라이브러리';
+ const choices=mode==='units'?UNIT_OPTIONS:mode==='categories'?CATEGORY_OPTIONS:mode==='home'||mode==='all'?HOME_OPTIONS:['전체'];
+ const wrap=$('sectionChips');
+ wrap.innerHTML=choices.map((x,i)=>`<button type="button" class="chip ${i===0?'active':''}" data-quick="${esc(x)}" aria-pressed="${i===0}">${esc(x)}</button>`).join('');
+ wrap.querySelectorAll('[data-quick]').forEach(b=>b.onclick=()=>{
+  filter=b.dataset.quick==='전체'?'all':b.dataset.quick;
+  wrap.querySelectorAll('[data-quick]').forEach(k=>{k.classList.toggle('active',k===b);k.setAttribute('aria-pressed',String(k===b))});
+  render();
+ });
+ document.querySelectorAll('.nav a').forEach(a=>a.classList.toggle('active',a.dataset.nav===mode));
+ render();
+}
+$('search').addEventListener('input',e=>{query=e.target.value;render()});
 $('filterBtn').onclick=()=>{openModal('게임 필터',`<div class="formGrid"><label class="field">카테고리<select id="modalFilter">${['all','종합','창의·퀴즈','카드·보드','보드게임','퀴즈·기타','모험·생활','전투형','협동','어휘','문장'].map(x=>`<option value="${x}" ${filter===x?'selected':''}>${x==='all'?'전체':x}</option>`).join('')}</select></label><label class="field">정렬<select id="modalSort"><option value="orig">등록순</option><option value="reverse" ${sortNewest?'selected':''}>역순</option></select></label></div><div class="formActions"><button class="save" id="applyFilter">적용</button></div>`);$('applyFilter').onclick=()=>{filter=$('modalFilter').value;sortNewest=$('modalSort').value==='reverse';section='all';render();closeModal()}};
-document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',e=>{if(a.id==='settingsLink')return;e.preventDefault();const t=a.textContent.trim();document.querySelectorAll('.nav a').forEach(x=>x.classList.remove('active'));a.classList.add('active');if(t.includes('즐겨찾기'))section='favorites';else if(t.includes('최근 사용'))section='recent';else if(t.includes('단원별')){section='all';openModal('단원별 보기',`<div class="formActions" style="justify-content:flex-start">${['전단원',...Array.from({length:12},(_,i)=>(i+1)+'단원')].map(x=>`<button class="chooseUnit" data-unit="${esc(x)}">${esc(x)}</button>`).join('')}</div>`);$('dialogBody').onclick=e=>{if(e.target.dataset.unit){filter=e.target.dataset.unit;closeModal();render()}}}else if(t.includes('카테고리')){$('filterBtn').click();section='all'}else section='all';if(!t.includes('단원별'))render()}));
+document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',e=>{
+ if(a.id==='settingsLink')return;
+ e.preventDefault();
+ setNav(a.dataset.nav||'home');
+ document.getElementById('games').scrollIntoView({behavior:'smooth',block:'start'});
+}));
 // QR is generated from the actual URL via a QR generation service; never show a decorative fake code.
-render();$('qrLabel').textContent='게임 카드의 QR 버튼을 눌러주세요.';
+setNav('home');$('qrLabel').textContent='게임 카드의 QR 버튼을 눌러주세요.';
 
 </script></body></html>
