@@ -1,5 +1,5 @@
-// 공개 파일입니다. Supabase의 publishable/anon 키만 입력하세요. service_role 비밀 키 금지.
+// Public Supabase project configuration. Never put service_role keys here.
 window.HUB_CLOUD_CONFIG = {
-  url: "",
-  anonKey: ""
+  url: "https://vhenvijloueryqvulkjb.supabase.co",
+  anonKey: "sb_publishable_PbEhQDCV0xzB-UfXSBU-fA_dzr6mr__"
 };
