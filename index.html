@@ -72,7 +72,6 @@
 <div class="siteCredit compactCredit">Made by 유하샘</div></main>
 <aside class="right">
 <section class="panel"><h3>📊 내 게임 라이브러리</h3><div class="statList"><div class="statItem"><div class="l">🎮 전체 게임</div><div class="n" id="statGames">17</div></div><div class="statItem"><div class="l">🔗 등록 주소</div><div class="n" id="statUrls">19</div></div><div class="statItem"><div class="l">⭐ 즐겨찾기</div><div class="n" id="favCount">0</div></div><div class="statItem"><div class="l">🕘 최근 사용</div><div class="n">›</div></div></div></section>
-<section class="panel" style="background:linear-gradient(180deg,#eef7ff,#f5fbff)"><h3>🔳 QR 빠른 생성</h3><div class="note">게임을 선택하면 바로 QR코드를 만들 수 있어요.</div><div class="qrBox" style="margin-top:10px;"><canvas class="qrCanvas" height="92" id="qrcanvas" width="92"></canvas><div class="note" id="qrLabel">학생들과 바로 공유해보세요! 💗</div></div></section>
 <section class="panel" style="background:linear-gradient(180deg,#fffef2,#fffced)"><h3>💡 선생님을 위한 팁</h3><ul class="tip"><li>수업 목적에 맞는 게임을 카테고리별로 모아보세요.</li><li>QR코드로 학생들과 쉽게 공유할 수 있어요.</li><li>즐겨찾기로 자주 쓰는 게임만 모아보세요.</li><li>나만의 게임 목록을 만들어 관리할 수 있어요.</li></ul></section>
 <div class="siteCredit">Made by 유하샘</div></aside></div>
 <div aria-modal="true" class="modalShade" id="modal" role="dialog">
@@ -121,7 +120,37 @@ $('importFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{co
 $('settingsLink').onclick=e=>{e.preventDefault();admin()};$('addGameBtn')?.addEventListener('click',()=>editGame());
 $('dialogBody').addEventListener('click',e=>{const ed=e.target.closest('[data-edit]'),del=e.target.closest('[data-delete]');if(ed)editGame(ed.dataset.edit);if(del){const g=gameById(del.dataset.delete);if(confirm(`${g.name} 게임을 삭제할까요?`)){const previousGames=games;games=games.filter(x=>x.id!==g.id);if(save()){render();admin()}else{games=previousGames}}}});
 $('grid').onclick=e=>{const fav=e.target.closest('[data-fav]'),info=e.target.closest('[data-info]'),qr=e.target.closest('[data-qr]'),play=e.target.closest('[data-play]');if(fav){const id=fav.dataset.fav;favs=favs.includes(id)?favs.filter(x=>x!==id):[...favs,id];updateFav();render()}if(info){const g=gameById(info.dataset.info);openModal(g.name,`<p>${esc(g.desc)}</p><p class="muted">${esc(g.category)} · ${esc(g.unit)}</p><p><a target="_blank" rel="noopener" href="${esc(g.url)}">학생용 실행 ↗</a></p>${g.teacher?`<p><a target="_blank" rel="noopener" href="${esc(g.teacher)}">교사용 실행 ↗</a></p>`:''}${g.tv?`<p><a target="_blank" rel="noopener" href="${esc(g.tv)}">TV 화면 ↗</a></p>`:''}<div class="formActions"><button id="infoEdit">정보 수정</button></div>`);$('infoEdit').onclick=()=>editGame(g.id)}if(qr){const g=gameById(qr.dataset.qr);makeQR(g.url,g.name)}if(play){const id=play.dataset.play;recent=[id,...recent.filter(x=>x!==id)].slice(0,15);localStorage.setItem(REC,JSON.stringify(recent))}};
-function makeQR(url,name){selectedQR=url;$('qrLabel').textContent=name+' · QR코드 로딩 중';const c=$('qrcanvas'),ctx=c.getContext('2d'),im=new Image();im.crossOrigin='anonymous';im.onload=()=>{ctx.clearRect(0,0,c.width,c.height);ctx.drawImage(im,0,0,c.width,c.height);$('qrLabel').textContent=name+' · 휴대폰으로 스캔하세요'};im.onerror=()=>{$('qrLabel').textContent='QR 이미지 연결 실패 · 아래 주소를 복사해 사용하세요';ctx.clearRect(0,0,c.width,c.height)};im.src='https://api.qrserver.com/v1/create-qr-code/?size=180x180&data='+encodeURIComponent(url)}
+async function makeQR(url,name){
+ const SIZE=1772; // 15 cm at 300 DPI
+ const canvas=document.createElement('canvas');canvas.width=SIZE;canvas.height=SIZE;
+ const ctx=canvas.getContext('2d');ctx.fillStyle='#ffffff';ctx.fillRect(0,0,SIZE,SIZE);
+ const image=new Image();image.crossOrigin='anonymous';
+ image.onload=async()=>{
+  try{
+   const QR=1450,offset=(SIZE-QR)/2;
+   ctx.imageSmoothingEnabled=false;
+   ctx.drawImage(image,offset,92,QR,QR);
+   ctx.imageSmoothingEnabled=true;
+   ctx.fillStyle='#173c73';ctx.font='bold 62px "Noto Sans KR",sans-serif';ctx.textAlign='center';
+   const label=String(name||'게임');let font=62;
+   while(ctx.measureText(label).width>SIZE-145 && font>26){font-=2;ctx.font='bold '+font+'px "Noto Sans KR",sans-serif'}
+   ctx.fillText(label,SIZE/2,1638);
+   const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
+   if(!blob)throw Error('PNG 생성 실패');
+   const original=new Uint8Array(await blob.arrayBuffer());
+   // Embed PNG pHYs resolution: 11811 pixels/metre = approximately 300 DPI (15 cm at 1772 px)
+   const chunk=new Uint8Array(21),v=new DataView(chunk.buffer);
+   v.setUint32(0,9);chunk.set([112,72,89,115],4);v.setUint32(8,11811);v.setUint32(12,11811);chunk[16]=1;
+   let crc=0xffffffff;for(let i=4;i<17;i++){crc^=chunk[i];for(let j=0;j<8;j++)crc=(crc>>>1)^((crc&1)?0xedb88320:0)}v.setUint32(17,(crc^0xffffffff)>>>0);
+   let dest=new Uint8Array(original.length+21);dest.set(original.slice(0,33),0);dest.set(chunk,33);dest.set(original.slice(33),54);
+   const file=new Blob([dest],{type:'image/png'}),link=document.createElement('a');
+   link.href=URL.createObjectURL(file);link.download=(label.replace(/[\\/:*?"<>|]/g,'_').trim()||'게임')+'.png';
+   document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(link.href),3000);
+  }catch(e){alert('QR 이미지 저장 실패: '+e.message)}
+ };
+ image.onerror=()=>alert('QR 코드를 생성하지 못했습니다. 인터넷 연결을 확인해 주세요.');
+ image.src='https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&margin=10&ecc=M&data='+encodeURIComponent(url);
+}
 const UNIT_OPTIONS=['전체', '전단원', ...Array.from({length:12},(_,i)=>(i+1)+'단원')];
 const CATEGORY_OPTIONS=['전체','종합','창의·퀴즈','카드·보드','보드게임','퀴즈·기타','모험·생활','전투형','협동','어휘','문장'];
 const HOME_OPTIONS=['전체','종합','어휘','문장','카드·보드','보드게임','전투형','협동'];
@@ -147,7 +176,7 @@ document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',e=>{
  document.getElementById('games').scrollIntoView({behavior:'smooth',block:'start'});
 }));
 // QR is generated from the actual URL via a QR generation service; never show a decorative fake code.
-setNav('home');$('qrLabel').textContent='게임 카드의 QR 버튼을 눌러주세요.';
+setNav('home');
 
 </script>
 
