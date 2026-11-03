@@ -198,6 +198,8 @@ function setNav(mode){
   wrap.innerHTML=`<div class="scienceUnitFilters"><div class="scienceUnitGroup"><div class="scienceUnitButtons">${SCIENCE_UNIT_OPTIONS.map((x,i)=>chip(x,i===0)).join('')}</div></div></div>`;
  }else if(mode==='home'){
   wrap.innerHTML=`<div class="englishUnitButtons">${UNIT_OPTIONS.map((x,i)=>chip(x,i===0)).join('')}</div>`;
+ }else if(mode==='categories'){
+  wrap.innerHTML=`<div class="englishUnitButtons categoryButtons">${CATEGORY_OPTIONS.map((x,i)=>chip(x,i===0)).join('')}</div>`;
  }else{
   wrap.innerHTML=choices.map((x,i)=>chip(x,i===0)).join('');
  }
