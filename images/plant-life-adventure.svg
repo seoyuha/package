@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+<defs>
+<linearGradient id="sky" x2="0" y2="1"><stop stop-color="#80dfff"/><stop offset="1" stop-color="#d9ffe3"/></linearGradient>
+<linearGradient id="green" x2="0" y2="1"><stop stop-color="#bafa5c"/><stop offset="1" stop-color="#25b953"/></linearGradient>
+<linearGradient id="orange" x2="0" y2="1"><stop stop-color="#ffec78"/><stop offset="1" stop-color="#fca12c"/></linearGradient>
+</defs>
+<rect width="1200" height="675" fill="url(#sky)"/>
+<path d="M0 400Q170 300 370 386T800 371T1200 338V675H0Z" fill="#67c584"/>
+<path d="M0 506Q300 443 550 489T1200 470V675H0" fill="#3c9e61"/>
+<g fill="#398b54" opacity=".5"><circle cx="90" cy="286" r="72"/><circle cx="1057" cy="290" r="92"/><circle cx="984" cy="225" r="57"/></g>
+<rect x="33" y="35" width="275" height="96" rx="31" fill="#7050ba" stroke="#fdfaff" stroke-width="9"/>
+<text x="170" y="101" fill="#fff" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="52">과학 2단원</text>
+<rect x="240" y="126" width="720" height="218" rx="48" fill="#213b68" stroke="#f9ffdd" stroke-width="15"/>
+<text x="600" y="222" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="92" fill="url(#green)" stroke="#103e2d" stroke-width="6">식물의 생활</text>
+<text x="600" y="314" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="75" fill="url(#orange)" stroke="#58341f" stroke-width="5">몬스터 탐험</text>
+<g transform="translate(86 342)">
+<circle cx="105" cy="95" r="84" fill="#ffdeb9" stroke="#634c3a" stroke-width="9"/>
+<path d="M25 64q-8-104 89-113 99 8 76 116-75-51-165-3" fill="#62432f"/>
+<circle cx="77" cy="104" r="9"/><circle cx="138" cy="104" r="9"/>
+<path d="M77 137q26 27 54 0" fill="none" stroke="#b85664" stroke-width="10" stroke-linecap="round"/>
+<rect x="30" y="178" width="151" height="120" rx="24" fill="#478ee2"/>
+</g>
+<g transform="translate(946 342)">
+<circle cx="105" cy="95" r="84" fill="#ffdeb9" stroke="#634c3a" stroke-width="9"/>
+<path d="M25 64q-8-104 89-113 99 8 76 116-75-51-165-3" fill="#59402b"/>
+<circle cx="77" cy="104" r="9"/><circle cx="138" cy="104" r="9"/>
+<path d="M77 137q26 27 54 0" fill="none" stroke="#b85664" stroke-width="10" stroke-linecap="round"/>
+<rect x="30" y="178" width="151" height="120" rx="24" fill="#e7a44c"/>
+</g>
+<g transform="translate(365 407)" stroke="#326b46" stroke-width="9">
+<path d="M90 197V87" fill="none"/>
+<path d="M90 135Q-20 85 8 31Q65 32 90 110Q124 25 186 43Q196 109 90 135" fill="#4bd46f"/>
+<ellipse cx="90" cy="70" rx="79" ry="66" fill="#e8c65a" stroke="#b38c2e"/>
+<circle cx="67" cy="66" r="9" fill="#2c432e"/><circle cx="112" cy="66" r="9" fill="#2c432e"/>
+<path d="M70 96q21 17 43 0" fill="none" stroke="#a47830"/>
+</g>
+<g transform="translate(635 414)" stroke="#2c8454" stroke-width="8">
+<path d="M120 179V98" fill="none"/>
+<path d="M120 128Q25 110 25 62Q85 40 120 112Q168 42 223 62Q227 109 120 128" fill="#37c767"/>
+<g fill="#f397c5" stroke="#d96599"><ellipse cx="120" cy="44" rx="40" ry="69"/><ellipse cx="120" cy="44" rx="40" ry="69" transform="rotate(72 120 44)"/><ellipse cx="120" cy="44" rx="40" ry="69" transform="rotate(144 120 44)"/><ellipse cx="120" cy="44" rx="40" ry="69" transform="rotate(216 120 44)"/><ellipse cx="120" cy="44" rx="40" ry="69" transform="rotate(288 120 44)"/></g>
+<circle cx="120" cy="44" r="31" fill="#ffea74" stroke="#dcaa2c"/>
+<circle cx="109" cy="40" r="5" fill="#333"/><circle cx="133" cy="40" r="5" fill="#333"/>
+<path d="M111 56q10 9 19 0" fill="none" stroke="#8e6c29" stroke-width="5"/>
+</g>
+<rect x="321" y="596" width="558" height="66" rx="22" fill="#235d61" stroke="#d4ffb2" stroke-width="6"/>
+<text x="600" y="642" text-anchor="middle" font-family="sans-serif" font-size="36" font-weight="800" fill="white">씨앗 · 싹 · 꽃 · 열매</text>
+</svg>
