@@ -188,7 +188,7 @@ function setNav(mode){
  const wrap=$('sectionChips');
  const chip=(x,active)=>`<button type="button" class="chip ${active?'active':''}" data-quick="${esc(x)}" aria-pressed="${active}">${esc(x)}</button>`;
  if(mode==='science'){
-  wrap.innerHTML=`<div class="scienceUnitFilters"><div class="scienceUnitGroup"><div class="scienceUnitButtons">${['전체','전단원'].map((x,i)=>chip(x,i===0)).join('')}</div></div>${['1학기','2학기'].map(sem=>`<div class="scienceUnitGroup"><div class="scienceUnitButtons">${Array.from({length:4},(_,i)=>chip(sem+' '+(i+1)+'단원',false)).join('')}</div></div>`).join('')}</div>`;
+  wrap.innerHTML=`<div class="scienceUnitFilters"><div class="scienceUnitGroup"><div class="scienceUnitButtons">${SCIENCE_UNIT_OPTIONS.map((x,i)=>chip(x,i===0)).join('')}</div></div></div>`;
  }else{
   wrap.innerHTML=choices.map((x,i)=>chip(x,i===0)).join('');
  }
