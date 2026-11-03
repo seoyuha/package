@@ -59,6 +59,10 @@
 /* Compact Science lesson buttons to reduce horizontal overflow */
 .scienceUnitButtons{gap:4px;padding:1px 0 2px}
 .scienceUnitButtons .chip{padding:7px 8px;font-size:11px;letter-spacing:-.35px;box-shadow:none}
+
+/* English lesson filters: one compact horizontally scrollable row */
+.englishUnitButtons{display:flex;align-items:center;flex-wrap:nowrap;gap:4px;width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;padding:1px 0 3px}
+.englishUnitButtons .chip{flex:0 0 auto;white-space:nowrap;padding:7px 8px;font-size:11px;letter-spacing:-.35px;box-shadow:none}
 </style>
 <style>
 /* Home screen: remove unused filter strip and extra vertical gap. */
@@ -192,6 +196,8 @@ function setNav(mode){
  const chip=(x,active)=>`<button type="button" class="chip ${active?'active':''}" data-quick="${esc(x)}" aria-pressed="${active}">${esc(x)}</button>`;
  if(mode==='science'){
   wrap.innerHTML=`<div class="scienceUnitFilters"><div class="scienceUnitGroup"><div class="scienceUnitButtons">${SCIENCE_UNIT_OPTIONS.map((x,i)=>chip(x,i===0)).join('')}</div></div></div>`;
+ }else if(mode==='home'){
+  wrap.innerHTML=`<div class="englishUnitButtons">${UNIT_OPTIONS.map((x,i)=>chip(x,i===0)).join('')}</div>`;
  }else{
   wrap.innerHTML=choices.map((x,i)=>chip(x,i===0)).join('');
  }
