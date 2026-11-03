@@ -63,6 +63,35 @@
 /* English lesson filters: one compact horizontally scrollable row */
 .englishUnitButtons{display:flex;align-items:center;flex-wrap:nowrap;gap:4px;width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;padding:1px 0 3px}
 .englishUnitButtons .chip{flex:0 0 auto;white-space:nowrap;padding:7px 8px;font-size:11px;letter-spacing:-.35px;box-shadow:none}
+
+/* Compact library stats and full-width game gallery */
+.app{grid-template-columns:238px minmax(0,1fr)!important;gap:14px}
+.center{min-width:0}
+.left{min-width:0}
+.sideLibraryStats{margin-top:16px;padding:12px 10px;border:1px solid #deebfa;border-radius:16px;background:#fff}
+.sideLibraryStats h3{font-size:13px;font-weight:900;color:#234c83;margin:0 0 10px;white-space:nowrap}
+.sideStatGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
+.sideStat{min-width:0;padding:7px 2px;border-radius:10px;text-align:center;background:#f1f7ff;display:flex;flex-direction:column;align-items:center;gap:3px}
+.sideStat span{font-size:10px;letter-spacing:-.5px;color:#5c7391;white-space:nowrap}
+.sideStat strong{font:900 17px/1.2 Nunito,'Noto Sans KR',sans-serif;color:#214d82}
+/* Fill the entire thumbnail-grid width, with no wasted side margins on desktop */
+#sectionChips{width:100%;min-width:0}
+#sectionChips .englishUnitButtons,
+#sectionChips .scienceUnitButtons{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);width:100%;max-width:100%;overflow:visible;gap:4px;padding:1px 0 3px}
+#sectionChips .scienceUnitFilters,
+#sectionChips .scienceUnitGroup{width:100%;min-width:0}
+#sectionChips .englishUnitButtons .chip,
+#sectionChips .scienceUnitButtons .chip{min-width:0;width:100%;padding:8px 1px;font-size:clamp(9px,.8vw,12px);letter-spacing:-.5px;white-space:nowrap;box-shadow:none;border-radius:11px;line-height:1.2}
+#sectionChips .categoryButtons .chip{font-size:clamp(9px,.83vw,12px)}
+/* On narrow screens, keep labels readable using horizontal scrolling only when required */
+@media(max-width:1300px){
+ #sectionChips .englishUnitButtons,
+ #sectionChips .scienceUnitButtons{display:flex;overflow-x:auto;scrollbar-width:thin;overscroll-behavior-x:contain}
+ #sectionChips .englishUnitButtons .chip,
+ #sectionChips .scienceUnitButtons .chip{flex:1 0 auto;width:auto;padding:7px 7px;font-size:11px}
+}
+@media(max-width:900px){.app{grid-template-columns:minmax(0,1fr)!important}}
+@media(min-width:1750px){.app{grid-template-columns:244px minmax(0,1fr)!important}}
 </style>
 <style>
 /* Home screen: remove unused filter strip and extra vertical gap. */
@@ -85,6 +114,14 @@
 <aside class="left">
 <div class="brand"><div class="logoBox"></div><div><div class="brandTitle">게임 <span>모음</span></div></div></div>
 <nav class="nav"><a class="active" data-nav="home" href="#"><span class="i"><svg class="ui-icon" viewbox="0 0 24 24"><path d="m3 11 9-8 9 8M5 10v11h14V10M9 21v-7h6v7"></path></svg></span>영어</a><a data-nav="science" href="#"><span class="i">🔬</span>과학</a><a data-nav="categories" href="#"><span class="i"><svg class="ui-icon" viewbox="0 0 24 24"><rect height="7" rx="1" width="7" x="3" y="3"></rect><rect height="7" rx="1" width="7" x="14" y="3"></rect><rect height="7" rx="1" width="7" x="3" y="14"></rect><rect height="7" rx="1" width="7" x="14" y="14"></rect></svg></span>카테고리</a><a data-nav="favorites" href="#"><span class="i"><svg class="ui-icon" viewbox="0 0 24 24"><polygon points="12 2 15.1 8.4 22 9.3 17 14.2 18.2 21 12 17.7 5.8 21 7 14.2 2 9.3 8.9 8.4"></polygon></svg></span>즐겨찾기</a><a data-nav="recent" href="#"><span class="i"><svg class="ui-icon" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 6v6l4 3"></path></svg></span>최근 사용</a><a href="#" id="settingsLink"><span class="i"><svg class="ui-icon" viewbox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"></path></svg></span>설정 · 게임 관리</a></nav>
+<section class="sideLibraryStats" aria-label="게임 라이브러리 통계">
+ <h3>🎮 게임 라이브러리</h3>
+ <div class="sideStatGrid">
+  <div class="sideStat"><span>전체 게임</span><strong id="statGames">0</strong></div>
+  <div class="sideStat"><span>등록 주소</span><strong id="statUrls">0</strong></div>
+  <div class="sideStat"><span>즐겨찾기</span><strong id="favCount">0</strong></div>
+ </div>
+</section>
 <div class="sidePromo"><img alt="Play Learn Grow Together" src="images/promo.webp"/></div>
 </aside>
 <main class="center">
@@ -94,10 +131,7 @@
 <div aria-label="게임 분류" class="chipsRow" id="sectionChips" role="group"></div>
 <div class="grid" id="grid"></div></section>
 <div class="siteCredit compactCredit">Made by 유하샘</div></main>
-<aside class="right">
-<section class="panel"><h3>📊 내 게임 라이브러리</h3><div class="statList"><div class="statItem"><div class="l">🎮 전체 게임</div><div class="n" id="statGames">17</div></div><div class="statItem"><div class="l">🔗 등록 주소</div><div class="n" id="statUrls">19</div></div><div class="statItem"><div class="l">⭐ 즐겨찾기</div><div class="n" id="favCount">0</div></div><div class="statItem"><div class="l">🕘 최근 사용</div><div class="n">›</div></div></div></section>
-<section class="panel" style="background:linear-gradient(180deg,#fffef2,#fffced)"><h3>💡 선생님을 위한 팁</h3><ul class="tip"><li>수업 목적에 맞는 게임을 카테고리별로 모아보세요.</li><li>QR코드로 학생들과 쉽게 공유할 수 있어요.</li><li>즐겨찾기로 자주 쓰는 게임만 모아보세요.</li><li>나만의 게임 목록을 만들어 관리할 수 있어요.</li></ul></section>
-<div class="siteCredit">Made by 유하샘</div></aside></div>
+</div>
 <div aria-modal="true" class="modalShade" id="modal" role="dialog">
 <div class="dialog"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><h2 id="dialogTitle">게임 관리</h2><button aria-label="닫기" id="closeModal" style="background:#f0f5fd;border:0;border-radius:12px;padding:10px 14px">✕</button></div><div id="dialogBody"></div></div>
 </div>
