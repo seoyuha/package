@@ -39,6 +39,18 @@
 .field .unitCheckItem input[type="checkbox"]{width:15px;height:15px;min-width:15px;margin:0;padding:0;accent-color:#428fff;flex:none;}
 .unitCheckItem:has(input:checked){background:#e7f2ff;border-color:#79b3ff;color:#174e93;}
 @media(max-width:420px){.unitCheckGrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;padding:7px}.unitCheckItem{font-size:11px;padding:8px 2px}}
+
+.scienceUnitFilters{width:100%;display:grid;gap:9px}
+.scienceUnitGroup{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.scienceUnitHeading{font-size:13px;font-weight:900;color:#375e86;min-width:43px}
+.scienceUnitButtons{display:flex;gap:7px;flex-wrap:wrap}
+.scienceUnitButtons .chip{padding:8px 13px;font-size:13px}
+.unitSelectContainer{width:100%;display:grid;gap:8px}
+.semesterUnitRow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border:1px solid #dde8f4;background:#f7fbff;border-radius:12px;padding:8px 10px}
+.semesterLabel{font-size:13px;font-weight:900;color:#325d89;min-width:40px}
+.semesterChoices{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;flex:1;min-width:0}
+.semesterChoices .unitCheckItem{font-size:12px;padding:8px 3px}
+@media(max-width:420px){.scienceUnitGroup{gap:5px}.scienceUnitHeading{width:100%}.semesterUnitRow{gap:5px}.semesterChoices{grid-template-columns:repeat(2,minmax(0,1fr));width:100%;flex-basis:100%}}
 </style>
 <style>
 /* Home screen: remove unused filter strip and extra vertical gap. */
@@ -109,9 +121,19 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('modal').classLis
 const gameById=id=>games.find(g=>g.id===id);
 function admin(){openModal('설정 · 게임 관리', `<p class="muted">게임 이름·주소·설명·단원·썸네일을 이곳에서 수정할 수 있습니다. 변경 사항은 이 브라우저에 저장됩니다. 다른 기기에 반영하려면 목록을 내보내어 해당 기기에서 가져오세요.</p><div class="formActions" style="justify-content:flex-start"><button id="newGame">＋ 새 게임 등록</button><button id="exportGames">목록 내보내기</button><button id="importGames">목록 가져오기</button></div><div id="settingsList" class="settingsList"></div>`);listSettings();$('newGame').onclick=()=>editGame();$('exportGames').onclick=exportGames;$('importGames').onclick=()=>$('importFile').click()}
 function listSettings(){const el=$('settingsList');if(!el)return;el.innerHTML=games.map(g=>`<div class="settingsItem"><div><strong>${esc(g.name)}</strong><small>${esc(g.url)}</small></div><div class="buttons"><button data-edit="${esc(g.id)}">수정</button><button data-delete="${esc(g.id)}">삭제</button></div></div>`).join('')}
+function unitChoiceHtml(subject,rawUnit){
+ const selected=new Set(String(rawUnit||'전단원').split(',').map(x=>x.trim()==='전체'?'전단원':x.trim()));
+ const checkbox=x=>`<label class="unitCheckItem"><input type="checkbox" name="fUnitChoice" value="${esc(x)}" ${selected.has(x)?'checked':''}>${esc(x)}</label>`;
+ if(subject==='과학'){
+  return `<div class="semesterUnitRow"><span class="semesterLabel">공통</span><div class="semesterChoices">${checkbox('전단원')}</div></div>`+
+   ['1학기','2학기'].map(semester=>`<div class="semesterUnitRow"><span class="semesterLabel">${semester}</span><div class="semesterChoices">${Array.from({length:4},(_,i)=>checkbox(semester+' '+(i+1)+'단원')).join('')}</div></div>`).join('');
+ }
+ return `<div class="unitCheckGrid">${['전단원',...Array.from({length:12},(_,i)=>(i+1)+'단원')].map(checkbox).join('')}</div>`;
+}
 function editGame(id){const g=gameById(id)||{id:'',name:'',desc:'',category:'퀴즈·기타',unit:'전단원',url:'',teacher:'',tv:'',subject:navMode==='science'?'과학':'영어',img:''};
-openModal(id?'게임 정보 수정':'새 게임 등록', `<form id="gameForm" class="formGrid"><label class="field">게임 이름<input id="fName" required value="${esc(g.name)}"></label><label class="field">카테고리<select id="fCategory">${['종합','창의·퀴즈','카드·보드','보드게임','퀴즈·기타','모험·생활','전투형','협동','어휘','문장'].map(x=>`<option ${g.category===x?'selected':''}>${x}</option>`).join('')}</select></label><label class="field">교과<select id="fSubject"><option value="영어" ${g.subject!=='과학'?'selected':''}>영어</option><option value="과학" ${g.subject==='과학'?'selected':''}>과학</option></select></label><label class="field wide">간단한 설명<textarea id="fDesc">${esc(g.desc)}</textarea></label><div class="field wide"><span style="font-weight:700">학습 단원 (여러 개 선택 가능)</span><div id="fUnits" class="unitCheckGrid">${['전단원',...Array.from({length:12},(_,i)=>(i+1)+'단원')].map(x=>`<label class="unitCheckItem"><input type="checkbox" name="fUnitChoice" value="${x}" ${String(g.unit||'전단원').split(',').map(v=>v.trim()==='전체'?'전단원':v.trim()).includes(x)?'checked':''}>${x}</label>`).join('')}</div><small class="muted">선택한 모든 단원에 이 게임이 표시됩니다.</small></div><label class="field">학생용 게임 주소<input type="url" id="fUrl" value="${esc(g.url)}" required placeholder="https://..."></label><label class="field wide">교사용 주소 (선택)<input type="url" id="fTeacher" value="${esc(g.teacher||'')}" placeholder="https://..."></label><label class="field wide">TV 화면 주소 (선택)<input type="url" id="fTv" value="${esc(g.tv||'')}" placeholder="https://..."></label><label class="field wide">썸네일 이미지 업로드 (PNG/JPG/WebP)<input type="file" accept="image/png,image/jpeg,image/webp" id="fImage"><img class="thumbPreview" id="fPreview" src="${esc(g.img||'')}" alt="썸네일 미리보기"><span class="muted">이미지는 가로형 16:9 권장. 업로드하면 1600×900 고화질 WebP로 최적화합니다.</span></label><div class="formActions wide"><button type="button" id="cancelEdit">취소</button><button class="save" type="submit">저장하기</button></div></form>`);
+openModal(id?'게임 정보 수정':'새 게임 등록', `<form id="gameForm" class="formGrid"><label class="field">게임 이름<input id="fName" required value="${esc(g.name)}"></label><label class="field">카테고리<select id="fCategory">${['종합','창의·퀴즈','카드·보드','보드게임','퀴즈·기타','모험·생활','전투형','협동','어휘','문장'].map(x=>`<option ${g.category===x?'selected':''}>${x}</option>`).join('')}</select></label><label class="field">교과<select id="fSubject"><option value="영어" ${g.subject!=='과학'?'selected':''}>영어</option><option value="과학" ${g.subject==='과학'?'selected':''}>과학</option></select></label><label class="field wide">간단한 설명<textarea id="fDesc">${esc(g.desc)}</textarea></label><div class="field wide"><span style="font-weight:700">학습 단원 (여러 개 선택 가능)</span><div id="fUnits" class="unitSelectContainer">${unitChoiceHtml(g.subject||'영어',g.unit)}</div><small class="muted">선택한 모든 단원에 이 게임이 표시됩니다.</small></div><label class="field">학생용 게임 주소<input type="url" id="fUrl" value="${esc(g.url)}" required placeholder="https://..."></label><label class="field wide">교사용 주소 (선택)<input type="url" id="fTeacher" value="${esc(g.teacher||'')}" placeholder="https://..."></label><label class="field wide">TV 화면 주소 (선택)<input type="url" id="fTv" value="${esc(g.tv||'')}" placeholder="https://..."></label><label class="field wide">썸네일 이미지 업로드 (PNG/JPG/WebP)<input type="file" accept="image/png,image/jpeg,image/webp" id="fImage"><img class="thumbPreview" id="fPreview" src="${esc(g.img||'')}" alt="썸네일 미리보기"><span class="muted">이미지는 가로형 16:9 권장. 업로드하면 1600×900 고화질 WebP로 최적화합니다.</span></label><div class="formActions wide"><button type="button" id="cancelEdit">취소</button><button class="save" type="submit">저장하기</button></div></form>`);
 let newImage=null; $('cancelEdit').onclick=()=>admin();
+$('fSubject').onchange=()=>{$('fUnits').innerHTML=unitChoiceHtml($('fSubject').value,'전단원')};
 $('fImage').onchange=async e=>{const file=e.target.files[0];if(!file)return;if(!file.type.startsWith('image/'))return alert('이미지 파일을 올려주세요.');try{newImage=await resizeImage(file);$('fPreview').src=newImage}catch(e){alert('이미지를 불러올 수 없습니다.')}};
 $('gameForm').onsubmit=e=>{e.preventDefault();const name=$('fName').value.trim(), url=$('fUrl').value.trim(),teacher=$('fTeacher').value.trim(),tv=$('fTv').value.trim();if(!name||!validURL(url)||(teacher&&!validURL(teacher))||(tv&&!validURL(tv)))return alert('게임 이름과 올바른 http(s) 주소를 입력해 주세요.');if(!document.querySelector('input[name="fUnitChoice"]:checked'))return alert('학습 단원을 하나 이상 선택해 주세요.');const item={id:id||('game-'+Date.now()),name,desc:$('fDesc').value.trim(),category:$('fCategory').value,unit:([...document.querySelectorAll('input[name="fUnitChoice"]:checked')].map(x=>x.value).filter(x=>x!=='전단원').length ? [...document.querySelectorAll('input[name="fUnitChoice"]:checked')].map(x=>x.value).filter(x=>x!=='전단원').join(',') : '전단원'),url,teacher,tv,subject:$('fSubject').value,img:newImage||g.img||''};const previousGames=games;games=id?games.map(x=>x.id===id?item:x):[...games,item];if(save()){render();admin()}else{games=previousGames}}}
 function resizeImage(file){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onerror=reject;reader.onload=()=>{const image=new Image();image.onload=()=>{const canvas=document.createElement('canvas');const w=1600,h=900;canvas.width=w;canvas.height=h;const ctx=canvas.getContext('2d');ctx.fillStyle='#e8f4ff';ctx.fillRect(0,0,w,h);const scale=Math.max(w/image.width,h/image.height),dw=image.width*scale,dh=image.height*scale;ctx.drawImage(image,(w-dw)/2,(h-dh)/2,dw,dh);resolve(canvas.toDataURL('image/webp',.94))};image.onerror=reject;image.src=reader.result};reader.readAsDataURL(file)})}
@@ -152,13 +174,19 @@ async function makeQR(url,name){
  image.src='https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&margin=10&ecc=M&data='+encodeURIComponent(url);
 }
 const UNIT_OPTIONS=['전체', '전단원', ...Array.from({length:12},(_,i)=>(i+1)+'단원')];
+const SCIENCE_UNIT_OPTIONS=['전체','전단원',...['1학기','2학기'].flatMap(sem=>Array.from({length:4},(_,i)=>sem+' '+(i+1)+'단원'))];
 const CATEGORY_OPTIONS=['전체','종합','창의·퀴즈','카드·보드','보드게임','퀴즈·기타','모험·생활','전투형','협동','어휘','문장'];
 const HOME_OPTIONS=['전체','종합','어휘','문장','카드·보드','보드게임','전투형','협동'];
 function setNav(mode){
  navMode=mode;filter='all';section=mode==='favorites'?'favorites':mode==='recent'?'recent':'all';
- const choices=(mode==='home'||mode==='science')?UNIT_OPTIONS:mode==='categories'?CATEGORY_OPTIONS:[];
+ const choices=mode==='home'?UNIT_OPTIONS:mode==='science'?SCIENCE_UNIT_OPTIONS:mode==='categories'?CATEGORY_OPTIONS:[];
  const wrap=$('sectionChips');
- wrap.innerHTML=choices.map((x,i)=>`<button type="button" class="chip ${i===0?'active':''}" data-quick="${esc(x)}" aria-pressed="${i===0}">${esc(x)}</button>`).join('');
+ const chip=(x,active)=>`<button type="button" class="chip ${active?'active':''}" data-quick="${esc(x)}" aria-pressed="${active}">${esc(x)}</button>`;
+ if(mode==='science'){
+  wrap.innerHTML=`<div class="scienceUnitFilters"><div class="scienceUnitGroup"><span class="scienceUnitHeading">전체</span><div class="scienceUnitButtons">${['전체','전단원'].map((x,i)=>chip(x,i===0)).join('')}</div></div>${['1학기','2학기'].map(sem=>`<div class="scienceUnitGroup"><span class="scienceUnitHeading">${sem}</span><div class="scienceUnitButtons">${Array.from({length:4},(_,i)=>chip(sem+' '+(i+1)+'단원',false)).join('')}</div></div>`).join('')}</div>`;
+ }else{
+  wrap.innerHTML=choices.map((x,i)=>chip(x,i===0)).join('');
+ }
  wrap.querySelectorAll('[data-quick]').forEach(b=>b.onclick=()=>{
   filter=b.dataset.quick==='전체'?'all':b.dataset.quick;
   wrap.querySelectorAll('[data-quick]').forEach(k=>{k.classList.toggle('active',k===b);k.setAttribute('aria-pressed',String(k===b))});
