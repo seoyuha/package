@@ -92,6 +92,12 @@
 }
 @media(max-width:900px){.app{grid-template-columns:minmax(0,1fr)!important}}
 @media(min-width:1750px){.app{grid-template-columns:244px minmax(0,1fr)!important}}
+
+.settingsSubjectTabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:18px 0 10px;padding:5px;background:#eff5ff;border-radius:15px}
+.settingsSubjectTab{border:1px solid transparent;border-radius:11px;padding:11px 8px;background:transparent;color:#577296;font-weight:900;font-size:14px;cursor:pointer}
+.settingsSubjectTab.active{background:#fff;border-color:#c6dfff;color:#2260a4;box-shadow:0 3px 11px #2d63a61e}
+.settingsSubjectTab small{margin-left:4px;font-size:11px;color:#8395a9}
+.settingsSubjectTab.active small{color:#3e79b6}
 </style>
 <style>
 /* Home screen: remove unused filter strip and extra vertical gap. */
@@ -165,8 +171,9 @@ function closeModal(){$('modal').classList.remove('show')}
 $('closeModal').onclick=()=>{if($('gameForm'))admin();else closeModal()};$('modal').addEventListener('click',e=>{if(e.target===$('modal'))closeModal()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('modal').classList.contains('show')){if($('gameForm'))admin();else closeModal()}});
 const gameById=id=>games.find(g=>g.id===id);
-function admin(){openModal('설정 · 게임 관리', `<p class="muted">게임 이름·주소·설명·단원·썸네일을 이곳에서 수정할 수 있습니다. 변경 사항은 이 브라우저에 저장됩니다. 다른 기기에 반영하려면 목록을 내보내어 해당 기기에서 가져오세요.</p><div class="formActions" style="justify-content:flex-start"><button id="newGame">＋ 새 게임 등록</button><button id="exportGames">목록 내보내기</button><button id="importGames">목록 가져오기</button></div><div id="settingsList" class="settingsList"></div>`);listSettings();$('newGame').onclick=()=>editGame();$('exportGames').onclick=exportGames;$('importGames').onclick=()=>$('importFile').click()}
-function listSettings(){const el=$('settingsList');if(!el)return;el.innerHTML=games.map(g=>`<div class="settingsItem"><div><strong>${esc(g.name)}</strong><small>${esc(g.url)}</small></div><div class="buttons"><button data-edit="${esc(g.id)}">수정</button><button data-delete="${esc(g.id)}">삭제</button></div></div>`).join('')}
+let settingsSubject='영어';
+function admin(){openModal('설정 · 게임 관리', `<p class="muted">게임 이름·주소·설명·단원·썸네일을 이곳에서 수정할 수 있습니다.</p><div class="formActions" style="justify-content:flex-start"><button id="newGame">＋ 새 게임 등록</button><button id="exportGames">목록 내보내기</button><button id="importGames">목록 가져오기</button></div><div class="settingsSubjectTabs" id="settingsSubjectTabs" role="group" aria-label="게임 분류 선택"></div><div id="settingsList" class="settingsList"></div>`);listSettings();$('settingsSubjectTabs').onclick=e=>{const btn=e.target.closest('[data-settings-subject]');if(!btn)return;settingsSubject=btn.dataset.settingsSubject;listSettings()};$('newGame').onclick=()=>editGame();$('exportGames').onclick=exportGames;$('importGames').onclick=()=>$('importFile').click()}
+function listSettings(){const el=$('settingsList');if(!el)return;const tabs=$('settingsSubjectTabs');if(tabs)tabs.innerHTML=['영어','과학','기타'].map(x=>`<button type="button" class="settingsSubjectTab ${settingsSubject===x?'active':''}" data-settings-subject="${x}" aria-pressed="${settingsSubject===x}">${x} <small>${games.filter(g=>(g.subject||'영어')===x).length}</small></button>`).join('');const visible=games.filter(g=>(g.subject||'영어')===settingsSubject);el.innerHTML=visible.length?visible.map(g=>`<div class="settingsItem"><div><strong>${esc(g.name)}</strong><small>${esc(g.url)}</small></div><div class="buttons"><button data-edit="${esc(g.id)}">수정</button><button data-delete="${esc(g.id)}">삭제</button></div></div>`).join(''):'<p class="muted">이 분류에 등록된 게임이 없습니다.</p>'}
 function unitChoiceHtml(subject,rawUnit){
  const selected=new Set(String(rawUnit||'전단원').split(',').map(x=>x.trim()==='전체'?'전단원':x.trim()));
  const checkbox=x=>`<label class="unitCheckItem"><input type="checkbox" name="fUnitChoice" value="${esc(x)}" ${selected.has(x)?'checked':''}>${esc(x)}</label>`;
