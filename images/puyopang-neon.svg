@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+<defs>
+<radialGradient id="bg"><stop stop-color="#312068"/><stop offset=".68" stop-color="#130d38"/><stop offset="1" stop-color="#080c22"/></radialGradient>
+<linearGradient id="pink" x2="0" y2="1"><stop stop-color="#fff0ff"/><stop offset=".36" stop-color="#ff7de7"/><stop offset="1" stop-color="#ed16aa"/></linearGradient>
+<linearGradient id="cyan" x2="0" y2="1"><stop stop-color="#f6ffff"/><stop offset=".5" stop-color="#5af7ff"/><stop offset="1" stop-color="#088cff"/></linearGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="13"/></filter>
+<filter id="shadow"><feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#000" flood-opacity=".6"/></filter>
+<radialGradient id="shine" cx=".35" cy=".2" r=".75"><stop stop-color="#fff" stop-opacity=".9"/><stop offset=".26" stop-color="#fff" stop-opacity=".12"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1200" height="675" fill="url(#bg)"/>
+<g stroke="#bf4eff" stroke-width="8" opacity=".47"><rect x="28" y="46" width="1144" height="590" rx="32" fill="none"/><path d="M65 587H1134M95 87h1010"/></g>
+<g fill="#e73ff9" opacity=".15" filter="url(#glow)"><ellipse cx="600" cy="342" rx="450" ry="277"/></g>
+<g stroke="#4f2d91" stroke-width="3" opacity=".4"><path d="M0 540l600-200 600 200M0 597l600-230 600 230M0 651l600-230 600 230"/><path d="M240 520V675M520 480V675M780 480V675M1020 520V675"/></g>
+<g font-family="sans-serif" font-weight="900" text-anchor="middle" filter="url(#shadow)" paint-order="stroke">
+<text x="600" y="163" font-size="120" stroke="#6015aa" stroke-width="17" fill="url(#cyan)">영어</text>
+<text x="600" y="326" font-size="145" stroke="#70105b" stroke-width="18" fill="url(#pink)">뿌요뿌요</text>
+<text x="600" y="407" font-size="46" fill="#f2d9ff">NEON PUYO BATTLE</text>
+</g>
+<g fill="none" stroke="#ff28ca" stroke-width="6" opacity=".7"><path d="M367 443h466"/></g>
+<g transform="translate(133 405)">
+<circle cx="77" cy="77" r="74" fill="#ff4076" stroke="#ffb7d1" stroke-width="8"/><circle cx="77" cy="77" r="73" fill="url(#shine)"/>
+<ellipse cx="52" cy="71" rx="9" ry="15" fill="#461145"/><ellipse cx="100" cy="71" rx="9" ry="15" fill="#461145"/><path d="M54 102q24 27 48 0" fill="none" stroke="#481344" stroke-width="7" stroke-linecap="round"/>
+</g>
+<g transform="translate(866 396)">
+<circle cx="77" cy="77" r="76" fill="#26c9ff" stroke="#c0ffff" stroke-width="8"/><circle cx="77" cy="77" r="75" fill="url(#shine)"/>
+<ellipse cx="53" cy="72" rx="10" ry="15" fill="#21366a"/><ellipse cx="102" cy="72" rx="10" ry="15" fill="#21366a"/><path d="M58 103q19 21 39 0" fill="none" stroke="#263068" stroke-width="7" stroke-linecap="round"/>
+</g>
+<g transform="translate(80 540)"><circle cx="45" cy="45" r="46" fill="#61de5a" stroke="#d8ffd2" stroke-width="6"/><circle cx="44" cy="46" r="43" fill="url(#shine)"/></g>
+<g transform="translate(1020 529)"><circle cx="45" cy="45" r="47" fill="#efc626" stroke="#fff4a7" stroke-width="6"/><circle cx="45" cy="45" r="44" fill="url(#shine)"/></g>
+<g transform="translate(365 480)" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="44">
+<rect x="-24" y="0" width="155" height="87" rx="20" fill="#0e1b4a" stroke="#35e8ff" stroke-width="6"/>
+<rect x="154" y="0" width="155" height="87" rx="20" fill="#31104f" stroke="#ff52df" stroke-width="6"/>
+<rect x="332" y="0" width="155" height="87" rx="20" fill="#49310d" stroke="#ffe251" stroke-width="6"/>
+<text x="54" y="59" fill="#affdff">10</text><text x="231" y="59" fill="#ffeaff">11</text><text x="410" y="59" fill="#fff6b7">12</text>
+</g>
+<g fill="#fff6a8" font-size="57"><text x="255" y="191">✦</text><text x="937" y="208">✦</text><text x="348" y="393">✧</text><text x="847" y="418">✧</text></g>
+</svg>
