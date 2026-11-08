@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+<defs>
+<linearGradient id="bg" x2="0" y2="1"><stop stop-color="#071225"/><stop offset=".6" stop-color="#0b2030"/><stop offset="1" stop-color="#25190f"/></linearGradient>
+<linearGradient id="gold" x2="0" y2="1"><stop stop-color="#fff5cb"/><stop offset=".48" stop-color="#ffc75b"/><stop offset="1" stop-color="#ac5f14"/></linearGradient>
+<linearGradient id="sil" x2="0" y2="1"><stop stop-color="#334358"/><stop offset="1" stop-color="#11151e"/></linearGradient>
+<filter id="sh"><feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#000" flood-opacity=".8"/></filter>
+<filter id="light"><feGaussianBlur stdDeviation="9"/></filter>
+</defs>
+<rect width="1200" height="675" fill="url(#bg)"/>
+<g fill="none" stroke="#f2ae59" opacity=".45" stroke-width="2">
+<path d="M0 80Q380 145 680 40T1200 110M0 230Q450 125 770 215T1200 185"/>
+<circle cx="630" cy="280" r="170"/><ellipse cx="630" cy="280" rx="170" ry="65"/><ellipse cx="630" cy="280" rx="70" ry="170"/><path d="M460 280h340M630 110v340"/>
+</g>
+<g stroke="#cd723b" stroke-width="3" fill="none" opacity=".65"><path d="M155 122L370 221 536 93 760 187 960 107"/><path d="M268 190L469 277 682 177 932 254"/></g>
+<g fill="#ff5938"><circle cx="155" cy="122" r="7"/><circle cx="370" cy="221" r="7"/><circle cx="536" cy="93" r="7"/><circle cx="760" cy="187" r="7"/><circle cx="960" cy="107" r="7"/></g>
+<g opacity=".82"><rect x="30" y="75" width="252" height="174" rx="15" fill="#0f2439" stroke="#477d9b" stroke-width="4"/><path d="M65 125h180M65 151h145M65 178h176M65 205h114" stroke="#66c5ec" stroke-width="6" opacity=".48"/><text x="155" y="108" font-family="sans-serif" text-anchor="middle" font-size="23" fill="#7bddff">MISSION HQ</text></g>
+<g transform="translate(115 217)" filter="url(#sh)">
+<path d="M15 327l30-180q39-42 107-42t108 42l34 180" fill="url(#sil)" stroke="#957545" stroke-width="6"/>
+<path d="M98 130L144 225 188 131" fill="#f1eee7"/><path d="M144 225l-18 70 18 58 19-58z" fill="#11121c"/>
+<ellipse cx="146" cy="77" rx="71" ry="88" fill="#c58c66"/><path d="M72 66q1-100 90-104 78 17 65 99l-36-46-52 21-66 20" fill="#19161b"/>
+<rect x="90" y="75" width="52" height="24" rx="9" fill="#101318"/><rect x="152" y="75" width="51" height="24" rx="9" fill="#101318"/><path d="M138 85h18" stroke="#16151a" stroke-width="9"/>
+</g>
+<g transform="translate(806 214)" filter="url(#sh)">
+<path d="M4 331l35-180q45-40 114-40t116 40l33 180" fill="url(#sil)" stroke="#957545" stroke-width="6"/>
+<path d="M104 140l48 93 47-93" fill="#eeeae5"/><path d="M152 232l-16 100 16 24 17-24z" fill="#11111b"/>
+<ellipse cx="154" cy="77" rx="71" ry="85" fill="#d99b78"/><path d="M77 70Q58-40 168-29q87 28 56 111l-28-44-54-8-65 40" fill="#332722"/>
+<rect x="97" y="81" width="52" height="23" rx="9" fill="#111317"/><rect x="160" y="81" width="51" height="23" rx="9" fill="#111317"/><path d="M146 90h16" stroke="#17161c" stroke-width="8"/>
+</g>
+<g filter="url(#sh)"><rect x="335" y="308" width="535" height="196" rx="18" fill="#101419" stroke="url(#gold)" stroke-width="9"/><text x="602" y="412" font-family="sans-serif" font-size="107" font-weight="900" text-anchor="middle" fill="url(#gold)" stroke="#0c0c0f" stroke-width="3" paint-order="stroke">맨인블랙</text><text x="601" y="464" font-family="sans-serif" font-size="31" font-weight="700" text-anchor="middle" fill="#f8dcaa">ENGLISH SECRET MISSION</text></g>
+<rect x="420" y="530" width="370" height="65" rx="13" fill="#172d3b" stroke="#cf9b53" stroke-width="5"/>
+<text x="605" y="574" font-size="31" font-weight="900" font-family="sans-serif" fill="#fae4b6" text-anchor="middle">10 · 11 · 12단원</text>
+<g fill="#e3ae56" opacity=".8"><path d="M570 615l22 0 9-20 9 20 22 0-17 14 7 24-21-14-20 14 7-24z"/></g>
+</svg>
