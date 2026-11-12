@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+<defs>
+<linearGradient id="arc" x2="0" y2="1"><stop stop-color="#100e35"/><stop offset=".7" stop-color="#252059"/><stop offset="1" stop-color="#10102e"/></linearGradient>
+<linearGradient id="sky" x2="0" y2="1"><stop stop-color="#0867ec"/><stop offset=".62" stop-color="#4bc6fc"/><stop offset="1" stop-color="#c1f7ff"/></linearGradient>
+<linearGradient id="title" x2="0" y2="1"><stop stop-color="#fff7ab"/><stop offset=".4" stop-color="#ffc73e"/><stop offset="1" stop-color="#ef4a65"/></linearGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="8"/></filter>
+<filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#060922" flood-opacity=".85"/></filter>
+</defs>
+<rect width="1200" height="675" fill="url(#arc)"/>
+<path d="M22 12H1178L1194 102H6Z" fill="#131941" stroke="#ff37d0" stroke-width="9"/>
+<text x="600" y="71" text-anchor="middle" font-size="45" letter-spacing="9" font-weight="900" font-family="monospace" fill="#fd6cfc">★ RETRO ARCADE ★</text>
+<rect x="52" y="112" width="1096" height="462" rx="24" fill="url(#sky)" stroke="#50dbff" stroke-width="15"/>
+<g fill="white" opacity=".65"><ellipse cx="202" cy="210" rx="140" ry="24"/><ellipse cx="895" cy="227" rx="169" ry="27"/><ellipse cx="635" cy="464" rx="211" ry="35"/></g>
+<path d="M52 520q160-106 302 0t283-5 262 1 249-12v67H52Z" fill="#2cbd94"/>
+<path d="M52 551q210-59 421 6t385-7 290 8" stroke="#f9ffff" stroke-width="24" fill="none" opacity=".6"/>
+<g filter="url(#shadow)" font-family="sans-serif" font-weight="900" text-anchor="middle" paint-order="stroke" stroke="#171341" stroke-width="21" stroke-linejoin="round">
+<text x="600" y="342" font-size="158" fill="url(#title)">SKY ACE</text>
+<text x="600" y="420" font-size="53" fill="#eafcff" stroke-width="8">ENGLISH</text>
+</g>
+<g transform="translate(156 396) rotate(-15)" filter="url(#shadow)">
+<path d="M-35 28L-205 85-214 131-31 100Z" fill="#dae6ff" stroke="#1c3e91" stroke-width="12"/>
+<path d="M35 28L205 85 214 131 31 100Z" fill="#dae6ff" stroke="#1c3e91" stroke-width="12"/>
+<path d="M-77 43Q-69-34 0-52 69-34 77 43L40 122H-40Z" fill="#207cf0" stroke="#102f82" stroke-width="13"/>
+<ellipse cx="0" cy="24" rx="40" ry="67" fill="#90e9ff" stroke="#fff" stroke-width="9"/>
+<path d="M-56 120h112l-23 62H-33Z" fill="#ffde42" stroke="#163986" stroke-width="9"/>
+</g>
+<g transform="translate(988 402) rotate(16)" filter="url(#shadow)">
+<path d="M-25 26L-130 74-141 106-18 93Z" fill="#ffd8d9" stroke="#92344f" stroke-width="10"/>
+<path d="M25 26L130 74 141 106 18 93Z" fill="#ffd8d9" stroke="#92344f" stroke-width="10"/>
+<path d="M-53 38Q-46-26 0-39 46-26 53 38L28 103H-28Z" fill="#ee4a57" stroke="#852441" stroke-width="12"/>
+<ellipse cx="0" cy="19" rx="27" ry="47" fill="#b1ecff" stroke="#fff" stroke-width="8"/>
+</g>
+<path d="M313 448q183-74 352-9" stroke="#ffef76" stroke-width="11" fill="none" stroke-dasharray="18 19"/>
+<g transform="translate(716 488) rotate(-20)"><path d="M-60 0L0-15 60 0 0 20Z" fill="#ffce28" stroke="#f85937" stroke-width="9"/><path d="M-60 0l-81 0 25 27Z" fill="#ff6b26"/></g>
+<g fill="#fef4be"><path d="M374 454l11 33 33 11-33 11-11 33-11-33-33-11 33-11z"/><path d="M820 190l10 30 30 10-30 10-10 30-10-30-30-10 30-10z"/></g>
+<rect x="54" y="119" width="245" height="44" fill="#101535" opacity=".83"/>
+<text x="75" y="151" font-family="monospace" font-weight="900" font-size="29" fill="#fffad2">1P 000520</text>
+<rect x="922" y="119" width="214" height="44" fill="#101535" opacity=".83"/>
+<text x="943" y="151" font-family="monospace" font-weight="900" font-size="29" fill="#fffad2">STAGE 01</text>
+<g><rect x="386" y="581" width="428" height="53" rx="15" fill="#151640" stroke="#ff5de7" stroke-width="7"/><text x="600" y="616" fill="#f8fcff" font-size="25" font-weight="bold" font-family="monospace" text-anchor="middle">★ ENGLISH ALL UNITS ★</text></g>
+<g fill="#f94cb2"><circle cx="87" cy="623" r="22"/><circle cx="1120" cy="623" r="22"/></g>
+</svg>
