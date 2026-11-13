@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+<defs><pattern id="grain" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="2" cy="3" r=".8" fill="#bb8b75" opacity=".2"/><circle cx="9" cy="8" r=".7" fill="#3753a0" opacity=".15"/></pattern><linearGradient id="paper" x2="0" y2="1"><stop stop-color="#fffbec"/><stop offset="1" stop-color="#f9e0bb"/></linearGradient><filter id="shadow"><feDropShadow dx="2" dy="7" stdDeviation="5" flood-color="#78474d" flood-opacity=".35"/></filter></defs>
+<rect width="1200" height="675" fill="#fff5e7"/><rect width="1200" height="675" fill="url(#grain)"/>
+<g stroke-width="20"><path d="M0 0H1200" stroke="#345bcc" stroke-dasharray="44 24"/><path d="M0 0H1200" stroke="#f15c5d" stroke-dasharray="44 24" stroke-dashoffset="68"/><path d="M0 675H1200" stroke="#345bcc" stroke-dasharray="44 24"/><path d="M0 675H1200" stroke="#f15c5d" stroke-dasharray="44 24" stroke-dashoffset="68"/></g>
+<g fill="#cf434f"><circle cx="124" cy="122" r="71" fill="none" stroke="#cf434f" stroke-width="6"/><path d="M85 127l39-29 39 29-39 32z" stroke="#cf434f" stroke-width="5" fill="none"/><path d="M85 127v43h78v-43" stroke="#cf434f" stroke-width="5" fill="none"/><text x="124" y="85" font-family="serif" font-size="19" font-weight="bold" text-anchor="middle">AIR MAIL</text></g>
+<g fill="none" stroke="#d54559" stroke-width="5"><circle cx="1062" cy="114" r="70"/><circle cx="1062" cy="114" r="61" stroke-dasharray="6 5"/><path d="M1032 116l68-22-27 24 14 26-21-13-26 13 6-23z" fill="#ce4053" stroke="none"/><path d="M1130 103q42-17 69-4M1131 118q42-17 69-4M1131 133q42-17 69-4"/></g>
+<text x="600" y="152" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="107" fill="#182d68">한 단어 힌트</text>
+<g><rect x="411" y="182" width="378" height="57" rx="20" stroke="#1c3774" stroke-width="5" fill="none"/><text x="600" y="222" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="34" letter-spacing="3" fill="#1c3774">ONE WORD CLUE</text></g>
+<g filter="url(#shadow)"><path d="M210 357l390-126 390 126v230H210Z" fill="#e76669"/><path d="M211 351l389 240 389-240" fill="#f2c4a9" stroke="#bb5b5d" stroke-width="9"/>
+<rect x="320" y="313" width="190" height="190" rx="9" fill="url(#paper)" stroke="#eed3ae" stroke-width="5" transform="rotate(-10 320 313)"/><rect x="505" y="289" width="190" height="206" rx="9" fill="url(#paper)" stroke="#eed3ae" stroke-width="5"/><rect x="695" y="319" width="190" height="190" rx="9" fill="url(#paper)" stroke="#eed3ae" stroke-width="5" transform="rotate(9 695 319)"/>
+<text x="415" y="406" text-anchor="middle" font-family="sans-serif" font-size="49" font-weight="bold" fill="#173a79" transform="rotate(-10 415 406)">quiet</text>
+<text x="600" y="421" text-anchor="middle" font-family="sans-serif" font-size="111" font-weight="900" fill="#e94d59">?</text>
+<text x="792" y="403" text-anchor="middle" font-family="sans-serif" font-size="45" font-weight="bold" fill="#173a79" transform="rotate(9 792 403)">borrow</text>
+<path d="M210 404l390 190 390-190v185H210Z" fill="#fff3dd" stroke="#cd6971" stroke-width="8"/><path d="M210 589l390-214 390 214" fill="none" stroke="#ead0b6" stroke-width="8"/>
+</g>
+<g transform="translate(600 531)" fill="none" stroke="#e04b56" stroke-width="5"><circle r="58"/><circle r="49" stroke-dasharray="7 5"/><path d="M-30 8l54-18-24 20 14 23-21-13-20 8z" fill="#dc4c56" stroke="none"/></g>
+<g font-family="sans-serif" font-weight="bold"><text x="57" y="576" font-size="31" fill="#193976">1~12단원</text><text x="56" y="617" font-size="27" fill="#cf4255">영어 전단원</text></g>
+<g transform="translate(956 527)"><rect x="0" y="0" width="165" height="88" rx="12" fill="#254fa9"/><text x="82" y="56" text-anchor="middle" font-family="sans-serif" font-size="27" font-weight="900" fill="#fff">힌트 전달!</text></g>
+</svg>
