@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+<defs>
+<linearGradient id="sky" x2="0" y2="1"><stop stop-color="#69c3f3"/><stop offset="1" stop-color="#d0f7f8"/></linearGradient>
+<linearGradient id="gold" x2="0" y2="1"><stop stop-color="#fff8bc"/><stop offset=".48" stop-color="#ffd261"/><stop offset="1" stop-color="#d48b36"/></linearGradient>
+<filter id="shadow"><feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#163c65" flood-opacity=".45"/></filter>
+<g id="hex"><path d="M0-48 42-24V24L0 48-42 24V-24Z" stroke="#fff0cb" stroke-width="6"/></g>
+</defs>
+<rect width="1200" height="675" fill="url(#sky)"/><g fill="#fff"><ellipse cx="175" cy="91" rx="153" ry="39"/><ellipse cx="1023" cy="95" rx="162" ry="36"/></g>
+<path d="M0 537q240-140 450-43t359-6 391-19v206H0Z" fill="#95d894"/><path d="M0 604q316-113 569 0t631-27v98H0Z" fill="#55aa83"/>
+<g filter="url(#shadow)"><rect x="220" y="28" width="765" height="216" rx="39" fill="#142c4f" stroke="#e5ab51" stroke-width="13"/><text x="602" y="158" font-family="sans-serif" font-weight="900" font-size="105" text-anchor="middle" fill="url(#gold)">단어영토전쟁</text><path d="M330 181H870l32 26-32 29H330l-34-29Z" fill="#fff0cd"/><text x="600" y="220" text-anchor="middle" font-family="serif" font-weight="bold" font-size="27" fill="#243a56">WORD HUNTER · VOCABULARY WAR</text></g>
+<g transform="translate(605 450)" filter="url(#shadow)">
+<g fill="#faf0cb"><use href="#hex" x="-140" y="-91"/><use href="#hex" x="-47" y="-91"/><use href="#hex" x="46" y="-91"/><use href="#hex" x="139" y="-91"/><use href="#hex" x="-186" y="-10"/><use href="#hex" x="-93" y="-10"/><use href="#hex" x="0" y="-10"/><use href="#hex" x="93" y="-10"/><use href="#hex" x="186" y="-10"/><use href="#hex" x="-140" y="71"/><use href="#hex" x="-47" y="71"/><use href="#hex" x="46" y="71"/><use href="#hex" x="139" y="71"/></g>
+<g fill="#458ae0"><use href="#hex" x="-186" y="-10"/><use href="#hex" x="-93" y="-10"/><use href="#hex" x="-140" y="71"/></g>
+<g fill="#df565c"><use href="#hex" x="93" y="-10"/><use href="#hex" x="186" y="-10"/><use href="#hex" x="139" y="-91"/></g>
+<g fill="#f0bf47"><use href="#hex" x="-47" y="71"/><use href="#hex" x="46" y="71"/></g>
+<g fill="#9670cf"><use href="#hex" x="-47" y="-91"/><use href="#hex" x="46" y="-91"/></g>
+<text x="-156" y="-25" font-size="63">♜</text><text x="106" y="-24" font-size="63">♜</text><text x="-18" y="88" font-size="45">★</text>
+</g>
+<g transform="translate(65 301)" filter="url(#shadow)"><path d="M28 305l28-122h164l31 122Z" fill="#347fd6" stroke="#17395e" stroke-width="8"/><ellipse cx="140" cy="123" rx="91" ry="102" fill="#f5be9d" stroke="#523b37" stroke-width="7"/><path d="M50 104q-22-113 86-118 106 5 95 116l-44-53-61 5z" fill="#624637"/><circle cx="109" cy="130" r="11" fill="#1e2834"/><circle cx="171" cy="130" r="11" fill="#1e2834"/><path d="M112 167q29 23 52 0" fill="none" stroke="#a95458" stroke-width="7"/><path d="M56 216l-41-36-45 44 60 43" fill="#faf6eb" stroke="#2e517a" stroke-width="7"/><path d="M160 202l48 95 30-72" fill="#f7e6b7" stroke="#194366" stroke-width="7"/></g>
+<g transform="translate(896 309)" filter="url(#shadow)"><path d="M0 311l30-129h155l34 129Z" fill="#8e57c6" stroke="#413061" stroke-width="8"/><ellipse cx="117" cy="126" rx="88" ry="99" fill="#f6c6a8" stroke="#59403e" stroke-width="7"/><path d="M15 85L109-64l114 149Z" fill="#7145af" stroke="#ffe69c" stroke-width="11"/><circle cx="90" cy="134" r="10" fill="#28263e"/><circle cx="145" cy="134" r="10" fill="#28263e"/><path d="M93 168q25 21 49 0" fill="none" stroke="#ad5b6b" stroke-width="7"/><path d="M16 218l-57 36" stroke="#f7dbae" stroke-width="22"/><path d="M-43 243l-12-43-15 43-44 10 44 12 15 44 12-44 45-12Z" fill="#fff3aa" stroke="#df9b2c" stroke-width="7"/></g>
+<g fill="#fff3cf" stroke="#b57c47" stroke-width="5"><rect x="410" y="563" width="84" height="69" rx="12" transform="rotate(-10 452 597)"/><rect x="507" y="563" width="84" height="69" rx="12"/><rect x="603" y="563" width="84" height="69" rx="12" transform="rotate(11 645 597)"/></g>
+<g font-family="sans-serif" font-weight="900" font-size="42" text-anchor="middle" fill="#22385e"><text x="452" y="610">A</text><text x="550" y="611">B</text><text x="645" y="610">C</text></g>
+</svg>
